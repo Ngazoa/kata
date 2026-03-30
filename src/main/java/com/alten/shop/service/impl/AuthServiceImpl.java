@@ -1,5 +1,7 @@
 package com.alten.shop.service.impl;
 
+import com.alten.shop.exception.AlternCataException;
+import com.alten.shop.exception.ErrorCode;
 import com.alten.shop.model.User;
 import com.alten.shop.repository.UserRepository;
 import com.alten.shop.security.JwtUtil;
@@ -24,7 +26,7 @@ public class AuthServiceImpl implements AuthService {
     public void register(RegisterDTO dto) {
 
         if(userRepo.findByEmail(dto.getEmail()).isPresent()){
-            throw new RuntimeException("Email already exists");
+            throw new AlternCataException(ErrorCode.USER_NOT_FOUND,"Email already exists");
         }
 
         User user = new User();
@@ -40,10 +42,10 @@ public class AuthServiceImpl implements AuthService {
     public AuthResponseDTO login(LoginDTO dto) {
 
         User user = userRepo.findByEmail(dto.getEmail())
-                .orElseThrow(() -> new RuntimeException("User not found"));
+                .orElseThrow(() -> new AlternCataException(ErrorCode.USER_NOT_FOUND,"User not found"));
 
         if(!encoder.matches(dto.getPassword(), user.getPassword())){
-            throw new RuntimeException("Invalid credentials");
+            throw new AlternCataException(ErrorCode.UNAUTHORIZED_ACTION,"Invalid credentials");
         }
 
         String token = jwtUtil.generateToken(user.getEmail());
