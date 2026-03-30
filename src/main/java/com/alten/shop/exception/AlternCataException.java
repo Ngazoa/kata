@@ -8,12 +8,6 @@ public class AlternCataException extends RuntimeException {
 
   private Integer errorNumber;
 
-  public AlternCataException(ErrorCode code, Integer errorNumber, String message) {
-    super(message);
-    this.code = code;
-    this.errorNumber = errorNumber;
-  }
-
   public AlternCataException(ErrorCode code, String message) {
     super(message);
     this.code = code;

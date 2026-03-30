@@ -38,10 +38,6 @@ public enum ErrorCode {
 
   private final String description;
 
-  // Constructeur
-  ErrorCode(int number, HttpStatus httpStatus) {
-    this(number, httpStatus, null);
-  }
 
   // Constructeur complet
   ErrorCode(int number, HttpStatus httpStatus, String description) {
