@@ -22,6 +22,8 @@ public class User {
     private String firstname;
     private String email;
     private String password;
+    private String refreshToken;
+    private String role;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<CartItem> cart = new ArrayList<>();

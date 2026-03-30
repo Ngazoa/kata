@@ -22,3 +22,4 @@ spring:
 jwt:
   secret: "LONG_RANDOM_SECRET_32+_CHARS"
   duration: 3600000  # 1h en ms
+  refreshDuration: 360000000
