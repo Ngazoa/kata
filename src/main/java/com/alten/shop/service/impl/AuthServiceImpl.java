@@ -26,13 +26,14 @@ public class AuthServiceImpl implements AuthService {
     public void register(RegisterDTO dto) {
 
         if(userRepo.findByEmail(dto.getEmail()).isPresent()){
-            throw new AlternCataException(ErrorCode.USER_NOT_FOUND,"Email already exists");
+            throw new AlternCataException(ErrorCode.USER_ALREADY_EXISTS,"Email already exists");
         }
 
         User user = new User();
         user.setUsername(dto.getUsername());
         user.setFirstname(dto.getFirstname());
         user.setEmail(dto.getEmail());
+        user.setRole(dto.getRole().name());
         user.setPassword(encoder.encode(dto.getPassword()));
 
         userRepo.save(user);

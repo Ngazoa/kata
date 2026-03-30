@@ -16,19 +16,6 @@ public enum ErrorCode {
   INVALID_USER_ROLE(1003, HttpStatus.BAD_REQUEST, "Rôle utilisateur invalide"),
   UNAUTHORIZED_ACTION(1004, HttpStatus.FORBIDDEN, "Action non autorisée"),
 
-  // === Projet carbone ===
-  PROJECT_NOT_FOUND(2001, HttpStatus.NOT_FOUND, "Projet non trouvé"),
-  PROJECT_ALREADY_EXISTS(2002, HttpStatus.CONFLICT, "Le projet existe déjà"),
-  PROJECT_NOT_APPROVED(2003, HttpStatus.BAD_REQUEST, "Projet non approuvé"),
-  PROJECT_QUOTA_EXCEEDED(2004, HttpStatus.BAD_REQUEST, "Quota du projet dépassé"),
-
-  // === Crédits carbone ===
-  CREDIT_NOT_FOUND(3001, HttpStatus.NOT_FOUND, "Crédit carbone non trouvé"),
-  CREDIT_ALREADY_USED(3002, HttpStatus.CONFLICT, "Crédit déjà utilisé"),
-  INSUFFICIENT_CREDITS(3003, HttpStatus.BAD_REQUEST, "Crédits insuffisants"),
-  CREDIT_TRANSFER_ERROR(3004, HttpStatus.INTERNAL_SERVER_ERROR, "Erreur lors du transfert de crédit"),
-
-
   // === Sécurité & Auth ===
   INVALID_TOKEN(7001, HttpStatus.UNAUTHORIZED, "Token invalide"),
   ACCESS_DENIED(7002, HttpStatus.FORBIDDEN, "Accès refusé"),
